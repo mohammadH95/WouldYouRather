@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { SET_AUTHED_USER } from "../actions/authedUser";
+import { setAuthedUser } from "../actions/authedUser";
 
 class Login extends Component {
 
@@ -17,7 +17,7 @@ class Login extends Component {
     handelSubmit = (e) => {
         e.preventDefault()
 
-        this.props.dispatch(SET_AUTHED_USER(this.state.user))
+        this.props.dispatch(setAuthedUser(this.state.user))
         this.props.history.push('/home')
     }
 
