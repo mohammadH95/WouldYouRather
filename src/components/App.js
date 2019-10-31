@@ -15,6 +15,7 @@ class App extends Component {
         return(
             <Router>
                 <Fragment>
+                    <LoadingBar />
                     <div>
                         <Route path='/' exact component={Login} />    
                         <Route path='/home' component={Home} />
