@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import QuestionList from "./QuestionList";
-import Login from "./Login";
 
 class Home extends Component {
 
