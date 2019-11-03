@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Card } from "react-bootstrap";
 import { setAuthedUser } from "../actions/authedUser";
 
 class Login extends Component {
@@ -24,7 +25,8 @@ class Login extends Component {
     render() {
         const {users} = this.props
         return(
-            <div>
+            <Card>
+                <Card.Header>Welcome to Would You Rather</Card.Header>
                 <form onSubmit={this.handelSubmit}>
                     <div>
                         <select onChange={this.handelChange}>
@@ -36,8 +38,9 @@ class Login extends Component {
                     </div>
                     <button type='submit' >Login</button>
                 </form>
+            </Card>
+            
                 
-            </div>
         )
     }
 }
