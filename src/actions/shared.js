@@ -1,8 +1,8 @@
 import { getInitialData } from "../utils/api";
-import { _saveQuestionAnswer } from "../utils/_DATA";
+import { _saveQuestionAnswer, _saveQuestion } from "../utils/_DATA";
 import { showLoading, hideLoading } from "react-redux-loading";
-import { getUsers, userAnswered } from "./users";
-import { getQuestion, questionAnswered } from "./questions";
+import { getUsers, userAnswered, userAddQuestion } from "./users";
+import { getQuestion, questionAnswered, addQuestion } from "./questions";
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -23,6 +23,18 @@ export function handleSaveAnswer(authedUser, qid, answer) {
             .then(() => {
                 dispatch(userAnswered(authedUser, qid, answer))
                 dispatch(questionAnswered(authedUser, qid, answer))
+                dispatch(hideLoading())
+            })
+    }
+}
+
+export function handleAddQuestion(question) {    
+    return (dispatch) => {
+        dispatch(showLoading())
+        return _saveQuestion(question)
+            .then((formattedQuestion) => {
+                dispatch(userAddQuestion(formattedQuestion))
+                dispatch(addQuestion(formattedQuestion))
                 dispatch(hideLoading())
             })
     }

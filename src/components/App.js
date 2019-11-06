@@ -9,6 +9,7 @@ import UnansweredQuestion from "./UnansweredQuestion";
 import AnsweredQuestion from "./AnsweredQuestion";
 import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
+import NewQuestion from "./NewQuestion";
 
 class App extends Component {
     componentDidMount() {
@@ -27,6 +28,7 @@ class App extends Component {
                         <Route path='/unansweredQuestion/:id' component={UnansweredQuestion} />
                         <Route path='/answeredQuestion/:id' component={AnsweredQuestion} />
                         <Route path='/leadreboard' component={LeaderBoard} />
+                        <Route path='/newquestion' component={NewQuestion} />
                     </div>
                 </Fragment>
             </Router>
