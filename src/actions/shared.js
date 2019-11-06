@@ -1,25 +1,28 @@
-import { _getUsers, _getQuestions } from "../utils/_DATA";
+import { getInitialData } from "../utils/api";
+import { _saveQuestionAnswer } from "../utils/_DATA";
 import { showLoading, hideLoading } from "react-redux-loading";
-import { getUsers } from "./users";
-import { getQuestion } from "./questions";
+import { getUsers, userAnswered } from "./users";
+import { getQuestion, questionAnswered } from "./questions";
 
-export function handelGetUsers() {
+export function handleInitialData() {
     return (dispatch) => {
         dispatch(showLoading())
-        return _getUsers()
-            .then((users) => {
+        return getInitialData()
+            .then(({ users, questions }) => {
                 dispatch(getUsers(users))
+                dispatch(getQuestion(questions))
                 dispatch(hideLoading())
             })
     }
 }
 
-export function handelGetQuestions() {
+export function handleSaveAnswer(authedUser, qid, answer) {
     return (dispatch) => {
         dispatch(showLoading())
-        return _getQuestions()
-            .then((questions) => {
-                dispatch(getQuestion(questions))
+        return _saveQuestionAnswer({authedUser, qid, answer})
+            .then(() => {
+                dispatch(userAnswered(authedUser, qid, answer))
+                dispatch(questionAnswered(authedUser, qid, answer))
                 dispatch(hideLoading())
             })
     }

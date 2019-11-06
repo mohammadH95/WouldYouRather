@@ -19,6 +19,7 @@ class Login extends Component {
         e.preventDefault()
 
         this.props.dispatch(setAuthedUser(this.state.user))
+        
         this.props.history.push('/home')
     }
 

@@ -1,20 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Card, Button } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 class QuestionList extends Component {
     
+    handleClick = (e, id) => {
+        e.preventDefault()
+
+        if (this.props.check === 1) {
+            this.props.history.push(`/unansweredQuestion/${id}`)
+        } 
+        else if (this.props.check === 2) {
+            this.props.history.push(`/answeredQuestion/${id}`)
+        }
+    }
 
     render() {
-        const { question, author } = this.props
-
+        const { question, author } = this.props        
         
         return(
             <Card>
                 <Card.Header>{author.name}</Card.Header>
                 <p>Would you rather</p>
                 <p>{question.optionOne.text}</p>
-                <Button>View Poll</Button>
+                <Button onClick={(e) => this.handleClick(e, question.id)}>View Poll</Button>
             </Card>
         )
     }
@@ -30,4 +40,4 @@ function mapStateToProps({ questions, users }, { id }) {
     }
 }
 
-export default connect(mapStateToProps)(QuestionList)
+export default withRouter(connect(mapStateToProps)(QuestionList))
