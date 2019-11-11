@@ -35,31 +35,36 @@ class NewQuestion extends Component {
 
     render() {
         return (
-            <Card>
-                <Card.Header>Create New Question</Card.Header>
-                <Card.Body>
-                    <p>Complete the question</p>
-                    <h4>Would you rather...</h4>
-                    <Form onSubmit={this.handleSubmit} >
-                        <Form.Group>
-                            <Form.Control 
-                                placeholder='Enter Option One'
-                                name='optionOne'
-                                value={this.state.optionOne}
-                                onChange={this.handleChange}
-                            />
-                            <h6>Or</h6>
-                            <Form.Control
-                                placeholder='Enter Option Two'
-                                name='optionTwo'
-                                value={this.state.optionTwo}
-                                onChange={this.handleChange}
-                            />
-                            <Button type='submit'>Submit</Button>
-                        </Form.Group>
-                    </Form>
-                </Card.Body>
-            </Card>
+            
+                <Card>
+                    <Card.Header><h3>Create New Question</h3></Card.Header>
+                    <Card.Body>
+                        <p>Complete the question</p>
+                        <h4>Would you rather...</h4>
+                        <Form onSubmit={this.handleSubmit} >
+                            <Form.Group>
+                                <Form.Control 
+                                    placeholder='Enter Option One'
+                                    name='optionOne'
+                                    value={this.state.optionOne}
+                                    onChange={this.handleChange}
+                                />
+                                <p></p>
+                                <h6>Or</h6>
+                                <p></p>
+                                <Form.Control
+                                    placeholder='Enter Option Two'
+                                    name='optionTwo'
+                                    value={this.state.optionTwo}
+                                    onChange={this.handleChange}
+                                />
+                                <p></p>
+                                <Button block type='submit'>Submit</Button>
+                            </Form.Group>
+                        </Form>
+                    </Card.Body>
+                </Card>    
+            
         )
     }
 }

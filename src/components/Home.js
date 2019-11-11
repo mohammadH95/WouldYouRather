@@ -14,16 +14,21 @@ class Home extends Component {
     }
 
     render() {
+        console.log(this.props.history);
+        
         return (
-            <Tabs activeKey={this.state.activeTab}
-                onSelect={k => this.handleSelect(k)}>
-                <Tab eventKey='unanswered' title="Unanswered Questions">
-                    {this.props.unanswered.map(id => <QuestionsList key={id} id={id} check={1}/>)}
-                </Tab>
-                <Tab eventKey='answered' title="Answered Questions">
-                    {this.props.answered.map(id => <QuestionsList key={id} id={id} check={2}/>)}
-                </Tab>
-            </Tabs>
+            
+                <Tabs className='taps' activeKey={this.state.activeTab}
+                    onSelect={k => this.handleSelect(k)}>
+                    <Tab eventKey='unanswered' title="Unanswered Questions">
+                        {this.props.unanswered.map(id => <QuestionsList key={id} id={id} check={1}/>)}
+                    </Tab>
+                    <Tab eventKey='answered' title="Answered Questions">
+                        {this.props.answered.map(id => <QuestionsList key={id} id={id} check={2}/>)}
+                    </Tab>
+                </Tabs>    
+            
+                            
         )
     }
 }

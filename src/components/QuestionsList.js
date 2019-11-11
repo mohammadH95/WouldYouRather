@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container, Col, Row, Image } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 
 class QuestionList extends Component {
@@ -21,10 +21,22 @@ class QuestionList extends Component {
         
         return(
             <Card>
-                <Card.Header>{author.name}</Card.Header>
-                <p>Would you rather</p>
-                <p>{question.optionOne.text}</p>
-                <Button onClick={(e) => this.handleClick(e, question.id)}>View Poll</Button>
+                <Card.Header>{author.name} asks:</Card.Header>
+                <Card.Body>
+                    <Container>
+                        <Row>
+                            <Col className='colImg' xs={4}>
+                                <Image className='img' src={author.avatarURL} alt='UserAvatar'/>
+                                <p>{author.name}</p>
+                            </Col>
+                            <Col>
+                                <p>Would you rather</p>
+                                <p>..{question.optionOne.text}..</p>  
+                                <Button block onClick={(e) => this.handleClick(e, question.id)}>View Poll</Button>  
+                            </Col>    
+                        </Row>    
+                    </Container>    
+                </Card.Body>                
             </Card>
         )
     }
