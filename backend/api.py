@@ -9,7 +9,7 @@ from auth.auth import AuthError, requires_auth
 db = SQLAlchemy()
 
 def create_app(test_config=None):
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
     setup_db(app)
     CORS(app)
 
@@ -18,6 +18,10 @@ def create_app(test_config=None):
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, true')
         response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
         return response
+
+    @app.route('/')
+    def index():
+        return app.send_static_file('index.html')
 
     # GET all Users 
     @app.route('/users')
@@ -254,4 +258,4 @@ def create_app(test_config=None):
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run((host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80)))
