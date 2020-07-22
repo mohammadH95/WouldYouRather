@@ -9,7 +9,7 @@ from auth.auth import AuthError, requires_auth
 db = SQLAlchemy()
 
 def create_app(test_config=None):
-    app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
+    app = Flask(__name__, static_folder='./frontend/build', static_url_path='/')
     setup_db(app)
     CORS(app)
 
@@ -258,4 +258,4 @@ def create_app(test_config=None):
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
