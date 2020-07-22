@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, abort, jsonify
+from flask import Flask, request, abort, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import and_
 from flask_cors import CORS
@@ -21,7 +21,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        return app.send_static_file('index.html')
+        return render_template('index.html')
 
     # GET all Users 
     @app.route('/users')
