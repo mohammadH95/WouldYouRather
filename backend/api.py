@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, abort, jsonify, render_template
+from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import and_
 from flask_cors import CORS
@@ -18,10 +18,6 @@ def create_app(test_config=None):
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, true')
         response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
         return response
-
-    @app.route('/')
-    def index():
-        return render_template('index.html')
 
     # GET all Users 
     @app.route('/users')
