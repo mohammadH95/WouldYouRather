@@ -16,4 +16,4 @@ To start the frontend follow the instructions in [./frontend/README.md](./fronte
 
 ### Screenshot of the web app
 
-![Home](/screenshot/homepage.png)
+![Home](/screenshots/homepage.png)
