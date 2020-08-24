@@ -13,3 +13,7 @@ To start the backend follow the instructions in [./backend/README.md](./backend/
 
 The `./frontend` directory contains React frontend to consume the data from the Flask server.
 To start the frontend follow the instructions in [./frontend/README.md](./frontend/README.md)
+
+### Screenshot of the web app
+
+![Home](/screenshot/homepage.png)
