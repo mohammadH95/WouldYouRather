@@ -16,4 +16,17 @@ To start the frontend follow the instructions in [./frontend/README.md](./fronte
 
 ### Screenshot of the web app
 
+Home Page
 ![Home](/screenshots/homepage.png)
+
+Unanswerd Question
+![Unanswerd](/screenshots/unanswerdQ.png)
+
+Answerd Questions
+![Answerd](/screenshots/answerdQ.png)
+
+Leader Board
+![leaderboard](/screenshots/leaderboard.png)
+
+New Question
+![newQuestion](/screenshots/newQuestion.png)
